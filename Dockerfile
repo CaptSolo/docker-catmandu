@@ -11,8 +11,10 @@ RUN apt-get update && apt-get install -y \
   libssl-dev \
   libxml2-dev \
   libxslt1-dev \
+  libxml-libxslt-perl \
   libgdbm-dev \
-  libcapture-tiny-perl\
+  libxml-parser-perl \
+  libcapture-tiny-perl \
   curl \
   wget \
   nano \
@@ -20,7 +22,9 @@ RUN apt-get update && apt-get install -y \
   bsdmainutils \
   tree \
   man-db \
-  perl-doc
+  perl-doc \
+  python \
+  python-pip
 
 RUN adduser --disabled-password --gecos "" catmandu
 
