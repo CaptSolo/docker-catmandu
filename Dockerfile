@@ -1,6 +1,6 @@
 # Dockerizing Catmandu
 
-FROM debian:jessie
+FROM debian:buster
 MAINTAINER Vitali Peil
 
 RUN apt-get update && apt-get install -y \

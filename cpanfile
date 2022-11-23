@@ -4,7 +4,7 @@ requires 'perl', 'v5.10.1';
 requires 'Catmandu','>=1.0602';
 requires 'Catmandu::BibTeX','>=0.08';
 requires 'Catmandu::Breaker','>=0.10';
-requires 'Catmandu::MARC','>=1.17';
+requires 'Catmandu::MARC','>=1.29';
 requires 'Catmandu::XML','>=0.16';
 requires 'Catmandu::ArXiv','>=0.101';
 requires 'Catmandu::Importer::getJSON','>=0.50';
