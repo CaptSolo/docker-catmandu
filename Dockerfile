@@ -32,6 +32,9 @@ COPY . /home/catmandu
 
 WORKDIR /home/catmandu
 
+# Add this to change to a different mirror
+# cpanm --mirror https://cpan.metacpan.org --mirror-only 
+
 RUN cpanm -n -q --installdeps . && \
   rm -rf /var/lib/apt/lists/*
 
