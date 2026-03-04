@@ -1,39 +1,55 @@
 # Dockerizing Catmandu
 
-FROM debian:buster
-MAINTAINER Vitali Peil
+FROM debian:bookworm-slim
 
 RUN apt-get update && apt-get install -y \
   sudo \
   cpanminus \
-  build-essential \
-  libexpat1-dev \
-  libssl-dev \
-  libxml2-dev \
-  libxslt1-dev \
-  libxml-libxslt-perl \
-  libgdbm-dev \
-  libxml-parser-perl \
-  libcapture-tiny-perl \
   curl \
   wget \
   nano \
   vim \
-  bsdmainutils \
   tree \
   man-db \
-  perl-doc \
-  python \
-  python-pip
+  libcatmandu-aat-perl \
+  libcatmandu-atom-perl \
+  libcatmandu-bibtex-perl \
+  libcatmandu-breaker-perl \
+  libcatmandu-cmd-repl-perl \
+  libcatmandu-dbi-perl \
+  libcatmandu-exporter-table-perl \
+  libcatmandu-filestore-perl \
+  libcatmandu-fix-cmd-perl \
+  libcatmandu-i18n-perl \
+  libcatmandu-identifier-perl \
+  libcatmandu-importer-getjson-perl \
+  libcatmandu-ldap-perl \
+  libcatmandu-mab2-perl \
+  libcatmandu-marc-perl \
+  libcatmandu-markdown-perl \
+  libcatmandu-mediawiki-perl \
+  libcatmandu-mods-perl \
+  libcatmandu-oai-perl \
+  libcatmandu-perl \
+  libcatmandu-rdf-perl \
+  libcatmandu-ris-perl \
+  libcatmandu-solr-perl \
+  libcatmandu-sru-perl \
+  libcatmandu-stat-perl \
+  libcatmandu-template-perl \
+  libcatmandu-wikidata-perl \
+  libcatmandu-xls-perl \
+  libcatmandu-xml-perl \
+  libcatmandu-xsd-perl \
+  libcatmandu-z3950-perl \
+  libcatmandu-zotero-perl \
+  perl-doc
 
 RUN adduser --disabled-password --gecos "" catmandu
 
 COPY . /home/catmandu
 
 WORKDIR /home/catmandu
-
-# Add this to change to a different mirror
-# cpanm --mirror https://cpan.metacpan.org --mirror-only 
 
 RUN cpanm -n -q --installdeps . && \
   rm -rf /var/lib/apt/lists/*
@@ -43,3 +59,4 @@ RUN chown catmandu:catmandu *
 USER catmandu
 
 CMD ["/bin/bash"]
+
